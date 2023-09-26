@@ -2,7 +2,7 @@ const request = require('supertest');
 
 const app = require('../src/app');
 
-test('Deve listar todos os usuários', () => {
+it('Deve listar todos os usuários', () => {
   return request(app).get('/users')
     .then(res => {
       expect(res.status).toBe(200);
@@ -11,7 +11,7 @@ test('Deve listar todos os usuários', () => {
     });
 });
 
-test('Deve inserir um usuário com sucesso', () => {
+it('Deve inserir um usuário com sucesso', () => {
   return request(app).post('/users')
     .send({name: "Maria Aparecida", mail: 'maria@mail.com'})
     .then(res => {
