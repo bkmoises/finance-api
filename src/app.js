@@ -6,10 +6,11 @@ const knexlogger = require('knex-logger');
 
 app.db = knex(knexfile.test);
 
-app.use(knexlogger(app.db));
+// app.use(knexlogger(app.db));
 
 consign({ cwd: 'src', verbose: false })
   .include('./config/middlewares.js')
+  .then('./services/')
   .then('./routes/')
   .then('./config/routes.js')
   .into(app);
