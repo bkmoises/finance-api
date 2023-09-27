@@ -1,5 +1,5 @@
 module.exports = (app) => {
-  const findAll = (_req, res) => {
+  const getAll = (_req, res) => {
     app.services.user.findAll()
       .then((result) => res.status(200).json(result));
   };
@@ -10,5 +10,5 @@ module.exports = (app) => {
     return res.status(201).json(result[0]);
   };
 
-  return { findAll, createUser };
+  return { getAll, createUser };
 };
