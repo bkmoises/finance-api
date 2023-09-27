@@ -1,8 +1,8 @@
 const app = require('express')();
 const consign = require('consign');
 const knex = require('knex');
-const knexfile = require('../knexfile.js');
-const knexlogger = require('knex-logger');
+const knexfile = require('../knexfile');
+// const knexlogger = require('knex-logger');
 
 app.db = knex(knexfile.test);
 
@@ -15,7 +15,7 @@ consign({ cwd: 'src', verbose: false })
   .then('./config/routes.js')
   .into(app);
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.status(200).send();
 });
 
