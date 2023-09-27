@@ -20,5 +20,14 @@ module.exports = (app) => {
       });
   };
 
-  return { getAll, get, createAccount };
+  const update = (req, res) => {
+    app.services.account.updateAccount(req.params.id, req.body)
+      .then((result) => {
+        return res.status(200).json(result[0]);
+      });
+  };
+
+  return {
+    getAll, get, createAccount, update,
+  };
 };
