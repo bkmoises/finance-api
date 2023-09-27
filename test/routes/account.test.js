@@ -24,6 +24,15 @@ it('Deve inserir uma conta com sucesso', () => {
     });
 });
 
+it('Não deve inserir uma conta sem nome', () => {
+  return request(app).post(MAIN_ROUTE)
+    .send({ user_id: user.id })
+    .then((res) => {
+      expect(res.status).toBe(400);
+      expect(res.body.error).toBe('O campo name é requerido.');
+    });
+});
+
 it('Deve listar todas as contas', () => {
   return app.db('accounts')
     .insert({ name: 'Acc List', user_id: user.id })
