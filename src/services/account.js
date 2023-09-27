@@ -1,6 +1,8 @@
+const ValidationError = require('../errors/ValidationError');
+
 module.exports = (app) => {
   const saveAccount = async (account) => {
-    if (!account.name) return { error: 'O campo name é requerido.' };
+    if (!account.name) throw new ValidationError('O campo name é requerido.');
     return app.db('accounts').insert(account, '*');
   };
 
