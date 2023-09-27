@@ -22,7 +22,7 @@ it('Deve inserir um usuário com sucesso', () => {
     });
 });
 
-it("Não deve inserir usuário sem nome", () => {
+it('Não deve inserir usuário sem nome', () => {
   return request(app).post('/users')
     .send({ mail, passwd: '123' })
     .then((res) => {
