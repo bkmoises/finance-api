@@ -19,6 +19,7 @@ it('Deve inserir um usuário com sucesso', () => {
       expect(res.status).toBe(201);
       expect(res.body.name).toBe('Maria Aparecida');
       expect(res.body.mail).toBe(mail);
+      expect(res.body).not.toHaveProperty('passwd');
     });
 });
 
