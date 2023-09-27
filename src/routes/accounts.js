@@ -16,6 +16,8 @@ module.exports = (app) => {
   const createAccount = (req, res) => {
     app.services.account.saveAccount(req.body)
       .then((result) => {
+        if (result.error) return res.status(400).json(result);
+
         return res.status(201).json(result[0]);
       });
   };
