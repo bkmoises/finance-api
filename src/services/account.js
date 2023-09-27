@@ -1,5 +1,6 @@
 module.exports = (app) => {
-  const saveAccount = (account) => {
+  const saveAccount = async (account) => {
+    if (!account.name) return { error: 'O campo name é requerido.' };
     return app.db('accounts').insert(account, '*');
   };
 
