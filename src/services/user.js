@@ -15,7 +15,7 @@ module.exports = (app) => {
 
     if (userDb && userDb.length > 0) throw new ValidationError('Email já cadastrado!');
 
-    return app.db('users').insert(user, '*');
+    return app.db('users').insert(user, ['id', 'name', 'mail']);
   };
 
   return { findAll, saveUser };
