@@ -20,6 +20,13 @@ module.exports = (app) => {
       });
   };
 
+  const remove = (req, res) => {
+    app.services.account.deleteAccount({ id: req.params.id })
+      .then(() => {
+        return res.status(204).json({});
+      });
+  };
+
   const update = (req, res) => {
     app.services.account.updateAccount(req.params.id, req.body)
       .then((result) => {
@@ -27,7 +34,8 @@ module.exports = (app) => {
       });
   };
 
+
   return {
-    getAll, get, createAccount, update,
+    getAll, get, createAccount, update, remove,
   };
 };
