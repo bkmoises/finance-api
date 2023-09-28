@@ -9,7 +9,8 @@ app.db = knex(knexfile.test);
 // app.use(knexlogger(app.db));
 
 consign({ cwd: 'src', verbose: false })
-  .include('./config/middlewares.js')
+  .include('./config/passport.js')
+  .then('./config/middlewares.js')
   .then('./services/')
   .then('./routes/')
   .then('./config/routes.js')
@@ -19,9 +20,9 @@ app.get('/', (_req, res) => {
   res.status(200).send();
 });
 
-app.use((err, req, res, next) => {
+app.use((err, _req, res, next) => {
   const { name, message, stack } = err;
-  if (name == 'ValidationError') return res.status(400).json({ error: message })
+  if (name == 'ValidationError') return res.status(400).json({ error: message });
   else res.status(500).json({ name, message, stack });
   next(err);
 });
