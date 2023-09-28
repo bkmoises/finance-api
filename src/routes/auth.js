@@ -23,6 +23,6 @@ module.exports = (app) => {
         }
       }).catch((err) => next(err));
   };
-
   return { signin };
 };
+
