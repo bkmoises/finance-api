@@ -25,4 +25,3 @@ module.exports = (app) => {
   };
   return { signin };
 };
-
