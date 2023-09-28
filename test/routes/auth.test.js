@@ -39,3 +39,10 @@ it('Não deve autenticar usuários não cadastrados', () => {
       expect(res.body.error).toBe('Usuário ou senha invalida!');
     });
 });
+
+it('Não deve acessar uma rota protegida sem um token', () => {
+  return request(app).get('/users')
+    .then((res) => {
+      expect(res.status).toBe(401);
+    });
+});
