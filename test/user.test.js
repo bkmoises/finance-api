@@ -17,5 +17,6 @@ test('Deve criar um novo usuário', () => {
     .then(res => {
       expect(res.status).toBe(201);
       expect(res.body.name).toBe('Moisés Andrade');
+      expect(res.body.mail).toBe('moises@mail.com');
     });
 });
