@@ -1,11 +1,5 @@
-const express = require('express');
+const app = require('./app')
 
-const app = express();
-
-const PORT = 3001
-
-app.get('/', (_req, res) => {
-  res.status(200).send();
-});
+const PORT = 3001;
 
 app.listen(PORT, () => console.log(`Rodando na porta ${PORT}`))
