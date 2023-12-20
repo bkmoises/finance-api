@@ -11,11 +11,5 @@ module.exports = {
     migrations: {
       directory: "src/migrations",
     },
-    pool: {
-      min: 2,
-      max: 200,
-    },
-    acquireConnectionTimeout: 1000000,
-    debug: true,
   },
 };
