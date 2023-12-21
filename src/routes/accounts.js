@@ -11,5 +11,11 @@ module.exports = (app) => {
     });
   };
 
-  return { create, findAll };
+  const find = (req, res) => {
+    app.services.account.get({ id: req.params.id }).then((result) => {
+      return res.status(200).json(result);
+    });
+  };
+
+  return { create, find, findAll };
 };
